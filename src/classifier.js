@@ -1,10 +1,12 @@
 import { config } from './config.js';
 import crypto from 'crypto';
+import AIClassifier from './ai-classifier.js';
 
 class OpportunityClassifier {
   constructor() {
     this.opportunityKeywords = config.keywords.opportunities.map(k => k.toLowerCase());
     this.excludeKeywords = config.keywords.exclude.map(k => k.toLowerCase());
+    this.aiClassifier = new AIClassifier();
   }
 
   // Create unique hash for deduplication
@@ -96,14 +98,14 @@ class OpportunityClassifier {
   }
 
   // Process and classify a message
-  processMessage(message, sourcePlatform, sourceName, sourceUrl = '') {
+  async processMessage(message, sourcePlatform, sourceName, sourceUrl = '') {
     const text = message.text || message.caption || '';
 
     if (!text || text.length < 10) {
       return null; // Too short
     }
 
-    // Check if it's an opportunity
+    // Check if it's an opportunity (keyword-based first filter)
     if (!this.isOpportunity(text)) {
       return null;
     }
@@ -113,7 +115,7 @@ class OpportunityClassifier {
     const title = this.extractTitle(text);
     const unique_hash = this.createHash(text, sourceName);
 
-    return {
+    let opportunity = {
       title,
       description: text.substring(0, 500), // Limit description
       source_platform: sourcePlatform,
@@ -125,6 +127,11 @@ class OpportunityClassifier {
       unique_hash,
       deadline: this.extractDeadline(text)
     };
+
+    // Enhance with AI if available
+    opportunity = await this.aiClassifier.enhance(opportunity);
+
+    return opportunity;
   }
 
   // Try to extract deadline from text

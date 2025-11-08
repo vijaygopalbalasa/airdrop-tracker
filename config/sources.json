@@ -21,6 +21,17 @@
     ],
     "description": "Add Twitter usernames (without @) and hashtags to monitor"
   },
+  "discord": {
+    "channels": [],
+    "description": "Add Discord channel IDs here. You need to enable the bot and add it to your servers."
+  },
+  "youtube": {
+    "channels": [
+      "CoinBureau",
+      "AltcoinDaily"
+    ],
+    "description": "Add YouTube channel handles (without @) to monitor community posts and videos"
+  },
   "keywords": {
     "opportunities": [
       "airdrop",
@@ -35,14 +46,20 @@
       "early access",
       "whitelist",
       "free mint",
-      "reward program"
+      "reward program",
+      "token launch",
+      "nft drop",
+      "competition",
+      "giveaway"
     ],
     "exclude": [
       "scam",
       "fake",
       "phishing",
       "send me",
-      "double your"
+      "double your",
+      "guarantee",
+      "free money"
     ],
     "description": "Keywords to identify opportunities and filter out scams"
   }
