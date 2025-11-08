@@ -1,0 +1,49 @@
+{
+  "telegram": {
+    "channels": [
+      "@AirdropDetective",
+      "@AirdropAlertDaily",
+      "@CryptoAirdropz"
+    ],
+    "description": "Add Telegram channel usernames (with @) here. The bot will monitor these channels for opportunities."
+  },
+  "twitter": {
+    "accounts": [
+      "AirdropDetect",
+      "airdropalertcom",
+      "airdrops_io",
+      "earni_fi"
+    ],
+    "hashtags": [
+      "#airdrop",
+      "#web3hackathon",
+      "#cryptogrants"
+    ],
+    "description": "Add Twitter usernames (without @) and hashtags to monitor"
+  },
+  "keywords": {
+    "opportunities": [
+      "airdrop",
+      "hackathon",
+      "grant",
+      "bounty",
+      "testnet",
+      "retroactive",
+      "builder program",
+      "ecosystem fund",
+      "incentivized testnet",
+      "early access",
+      "whitelist",
+      "free mint",
+      "reward program"
+    ],
+    "exclude": [
+      "scam",
+      "fake",
+      "phishing",
+      "send me",
+      "double your"
+    ],
+    "description": "Keywords to identify opportunities and filter out scams"
+  }
+}

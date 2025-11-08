@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Opportunity Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Web3 Opportunity Tracker</h1>
+            <p class="subtitle">Your personal aggregator for airdrops, hackathons, and grants</p>
+        </header>
+
+        <div class="stats-container" id="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCount">0</div>
+                <div class="stat-label">Total Opportunities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="weekCount">0</div>
+                <div class="stat-label">This Week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="newCount">0</div>
+                <div class="stat-label">New</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="airdrop">Airdrops</option>
+                <option value="hackathon">Hackathons</option>
+                <option value="grant">Grants</option>
+                <option value="bounty">Bounties</option>
+                <option value="testnet">Testnets</option>
+                <option value="whitelist">Whitelists</option>
+                <option value="nft">NFTs</option>
+                <option value="other">Other</option>
+            </select>
+
+            <select id="statusFilter" class="filter-select">
+                <option value="">All Status</option>
+                <option value="new">New</option>
+                <option value="interested">Interested</option>
+                <option value="applied">Applied</option>
+                <option value="completed">Completed</option>
+                <option value="ignored">Ignored</option>
+            </select>
+
+            <select id="platformFilter" class="filter-select">
+                <option value="">All Platforms</option>
+                <option value="telegram">Telegram</option>
+                <option value="twitter">Twitter</option>
+            </select>
+
+            <button id="refreshBtn" class="btn-refresh">🔄 Refresh</button>
+        </div>
+
+        <div id="opportunities" class="opportunities-grid">
+            <!-- Opportunities will be loaded here -->
+        </div>
+
+        <div id="loading" class="loading">Loading opportunities...</div>
+        <div id="empty" class="empty" style="display: none;">
+            No opportunities found. The scraper will find them soon!
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
